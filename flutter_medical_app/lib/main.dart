@@ -10,6 +10,17 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_medical_app/pages/signupPage.dart';
 
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+        apiKey: "AIzaSyDSjrUOiZaTQR4DlOVpDpyQI4-IcJTtfC0",
+        appId: "1:728834309564:android:14cef260e440ea4dcbbfb9",
+        messagingSenderId: "728834309564",
+        projectId: "medicalapp-6e5a8"),
+  );
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
