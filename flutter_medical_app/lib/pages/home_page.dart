@@ -32,10 +32,6 @@ class _homePageState extends State<homePage> {
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
-                          radius: 24,
-                          backgroundImage: AssetImage("assets/user.png")
-                        ),
                         SizedBox(
                           width: 20,
                         ),
@@ -87,10 +83,8 @@ class _homePageState extends State<homePage> {
                         width: 15,
                       ),
                       consultationcard(
-                        
-                          color: Color.fromARGB(255, 51, 146, 223),
-                          name: "Bourchada",
-                       
+                        color: Color.fromARGB(255, 51, 146, 223),
+                        name: "Bourchada ",
                       ),
                       SizedBox(
                         width: 15,
@@ -121,38 +115,32 @@ class _homePageState extends State<homePage> {
                       SizedBox(width: 15),
                       CircleAvatar(
                         radius: 30,
-                        backgroundImage: AssetImage("assets/user.png") ,
+                        backgroundImage: AssetImage("assets/user.png"),
                       ),
                       SizedBox(width: 15),
                       CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage("assets/user2.png")
-                      ),
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/user2.png")),
                       SizedBox(width: 15),
                       CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage("assets/user3.png")
-                      ),
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/user3.png")),
                       SizedBox(width: 10),
                       CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage("assets/user4.png")
-                      ),
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/user4.png")),
                       SizedBox(width: 10),
                       CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage("assets/user5.png")
-                      ),
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/user5.png")),
                       SizedBox(width: 10),
                       CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage("assets/user6.png")
-                      ),
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/user6.png")),
                       SizedBox(width: 10),
                       CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage("assets/user7.png")
-                      ),
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/user7.png")),
                       SizedBox(width: 15),
                     ],
                   ),

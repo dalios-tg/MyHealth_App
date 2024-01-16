@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 class consultationcard extends StatelessWidget {
   final String name;
   final Color color;
-  const consultationcard({super.key, required this.name, required this.color});
+
+  const consultationcard({
+    super.key,
+    required this.name,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,6 @@ class consultationcard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: const <Widget>[
