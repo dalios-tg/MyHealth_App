@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_medical_app/pages/profile_list.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: camel_case_types
 class accountPage extends StatefulWidget {
   const accountPage({super.key});
 
@@ -10,6 +11,7 @@ class accountPage extends StatefulWidget {
   State<accountPage> createState() => _accountPageState();
 }
 
+// ignore: camel_case_types
 class _accountPageState extends State<accountPage> {
 //   // log out porcedure
   void logOut() {
@@ -23,9 +25,9 @@ class _accountPageState extends State<accountPage> {
               onPressed: () {
                 logOut();
               },
-              child: Text(
+              child:const  Text(
                 "Log Out",
-                style: TextStyle(
+                style:TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
                     color: Colors.black87),
@@ -37,17 +39,17 @@ class _accountPageState extends State<accountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 3, 226, 215),
+       backgroundColor: const Color.fromARGB(255, 3, 226, 215),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+           const SizedBox(
               height: 50,
             ),
             Center(
               child: Stack(
                 children: [
-                  SizedBox(
+                 const SizedBox(
                     height: 50,
                   ),
                   Container(
@@ -77,7 +79,7 @@ class _accountPageState extends State<accountPage> {
                           shape: BoxShape.circle,
                           border: Border.all(width: 1, color: Colors.white),
                           color: Colors.white,
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage("assets/camra.png"))),
                     ),
                   ),
@@ -99,7 +101,7 @@ class _accountPageState extends State<accountPage> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -107,7 +109,8 @@ class _accountPageState extends State<accountPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
+                    
                     height: MediaQuery.of(context).size.height * 0.0900,
                     width: MediaQuery.of(context).size.width * 0.2500,
                     child: Column(children: [
@@ -125,7 +128,7 @@ class _accountPageState extends State<accountPage> {
                         style: GoogleFonts.poppins(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 245, 243, 243)),
+                            color: const Color.fromARGB(255, 245, 243, 243)),
                       ),
                       const SizedBox(
                         height: 2,
@@ -135,7 +138,7 @@ class _accountPageState extends State<accountPage> {
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 255, 255, 255)),
+                            color: const Color.fromARGB(255, 255, 255, 255)),
                       )
                     ]),
                   ),
@@ -144,7 +147,7 @@ class _accountPageState extends State<accountPage> {
                     width: 1,
                     color: Colors.white,
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.0900,
                     width: MediaQuery.of(context).size.width * 0.2500,
                     child: Column(children: [
@@ -162,7 +165,7 @@ class _accountPageState extends State<accountPage> {
                         style: GoogleFonts.poppins(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 245, 243, 243)),
+                            color: const Color.fromARGB(255, 245, 243, 243)),
                       ),
                       const SizedBox(
                         height: 2,
@@ -172,7 +175,7 @@ class _accountPageState extends State<accountPage> {
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 255, 255, 255)),
+                            color: const Color.fromARGB(255, 255, 255, 255)),
                       )
                     ]),
                   ),
@@ -181,7 +184,7 @@ class _accountPageState extends State<accountPage> {
                     width: 1,
                     color: Colors.white,
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.0900,
                     width: MediaQuery.of(context).size.width * 0.2500,
                     child: Column(children: [
@@ -199,7 +202,7 @@ class _accountPageState extends State<accountPage> {
                         style: GoogleFonts.poppins(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 245, 243, 243)),
+                            color: const Color.fromARGB(255, 245, 243, 243)),
                       ),
                       const SizedBox(
                         height: 2,
@@ -228,7 +231,7 @@ class _accountPageState extends State<accountPage> {
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30))),
               child: Column(children: [
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 profile_list(
