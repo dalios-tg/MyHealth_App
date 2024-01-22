@@ -18,24 +18,50 @@ class _accountPageState extends State<accountPage> {
     FirebaseAuth.instance.signOut();
   }
 
-  Widget logOutButton() => GestureDetector(
-        child: Column(
+
+
+
+Widget logOutButton() => GestureDetector(
+  child: Column(
+    children: <Widget>[
+      TextButton(
+        onPressed: () {
+          logOut();
+        },
+        child: Row(
           children: <Widget>[
-            TextButton(
-              onPressed: () {
-                logOut();
-              },
-              child:const  Text(
-                "Log Out",
-                style:TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black87),
-              ),
-            )
+            SizedBox(width: 25),
+            Image(
+              image: AssetImage("assets/logout.png"), // Replace with your asset path
+              height: 28,
+              width: 28,
+            ),
+            SizedBox(width: 35), // Adjust the spacing between icon and text
+            Text(
+              "Log Out",
+              style: 
+                GoogleFonts.inter(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black87           
+              
+                    ),
+            ),
+                  SizedBox(width: 160),
+            Image(
+                    image: AssetImage(
+                        "assets/forward.png"), // Replace with your asset path
+                    height: 28,
+                    width: 28,
+                  ),
           ],
         ),
-      );
+      )
+    ],
+  ),
+);
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
