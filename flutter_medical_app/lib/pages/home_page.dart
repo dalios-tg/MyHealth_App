@@ -32,6 +32,10 @@ class _homePageState extends State<homePage> {
                   children: [
                     Row(
                       children: [
+                         CircleAvatar(
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/user.jpg"),
+                        ),
                         SizedBox(
                           width: 20,
                         ),
@@ -69,14 +73,14 @@ class _homePageState extends State<homePage> {
                   child: Row(
                     children: [
                       consultationcard(
-                        color: Color(0xFF0052a8),
+                        color: Color.fromARGB(255, 51, 146, 223),
                         name: "Michael\nSimpson",
                       ),
                       SizedBox(
                         width: 15,
                       ),
                       consultationcard(
-                        color: Color(0xFFcde1f3),
+                        color: Color.fromARGB(255, 51, 146, 223),
                         name: "Kate\nBrown ",
                       ),
                       SizedBox(
@@ -115,32 +119,32 @@ class _homePageState extends State<homePage> {
                       SizedBox(width: 15),
                       CircleAvatar(
                         radius: 30,
-                        backgroundImage: AssetImage("assets/user.png"),
+                        backgroundImage: AssetImage("assets/user1.jpg"),
                       ),
                       SizedBox(width: 15),
                       CircleAvatar(
                           radius: 30,
-                          backgroundImage: AssetImage("assets/user2.png")),
+                          backgroundImage: AssetImage("assets/user2.jpg")),
                       SizedBox(width: 15),
                       CircleAvatar(
                           radius: 30,
-                          backgroundImage: AssetImage("assets/user3.png")),
+                          backgroundImage: AssetImage("assets/user3.jpg")),
                       SizedBox(width: 10),
                       CircleAvatar(
                           radius: 30,
-                          backgroundImage: AssetImage("assets/user4.png")),
+                          backgroundImage: AssetImage("assets/user4.jpg")),
                       SizedBox(width: 10),
                       CircleAvatar(
                           radius: 30,
-                          backgroundImage: AssetImage("assets/user5.png")),
+                          backgroundImage: AssetImage("assets/user5.jpg")),
                       SizedBox(width: 10),
                       CircleAvatar(
                           radius: 30,
-                          backgroundImage: AssetImage("assets/user6.png")),
+                          backgroundImage: AssetImage("assets/user6.jpg")),
                       SizedBox(width: 10),
                       CircleAvatar(
                           radius: 30,
-                          backgroundImage: AssetImage("assets/user7.png")),
+                          backgroundImage: AssetImage("assets/user7.jpg")),
                       SizedBox(width: 15),
                     ],
                   ),
@@ -155,10 +159,13 @@ class _homePageState extends State<homePage> {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
+                          
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 59, 59, 59),
                             borderRadius: BorderRadius.all(Radius.circular(20)),
-                          ),
+                         
+                          )
+                          ,
                         ),
                       );
                     }),
