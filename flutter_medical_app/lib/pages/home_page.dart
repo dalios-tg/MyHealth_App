@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_medical_app/widgets/title_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_medical_app/widgets/consultationcard.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:flutter_medical_app/style/app_style.dart';
+import '../data/data.dart';
+import '../size_config.dart';
 
 class homePage extends StatefulWidget {
   const homePage({super.key});
@@ -16,164 +19,345 @@ final Stream<QuerySnapshot> _user =
 class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              Container(
-                color: Colors.white,
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 7,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage("assets/user.jpg"),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("Welcome back",
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            Text(
-                              "Jessica",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 24),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.menu,
-                          size: 30,
-                        ))
-                  ],
+      body: ListView(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: SizeConfig.blockSizeHorizontal! * 7,
+            ),
+            child: Column(
+              children: const [
+                // User Info Area .
+                UserInfo(),
+                // SearchMedical Area.
+                SearchMedical(),
+                // Services Area .
+                Services(),
+                // GetBestMedicalService
+                GetBestMedicalService(),
+              ],
+            ),
+          ),
+          // Upcoming Appointments
+          const UpcomingAppointments()
+        ],
+      ),
+    );
+  }
+}
+
+class UserInfo extends StatelessWidget {
+  const UserInfo({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      title: const Padding(
+        padding: EdgeInsets.only(bottom: 7),
+        child: Text("👋 Hello!"),
+      ),
+      subtitle: Text(
+        "Amelia Renata",
+        style: Theme.of(context)
+            .textTheme
+            .headlineSmall!
+            .copyWith(fontWeight: FontWeight.w700),
+      ),
+      trailing: Container(
+        width: 48.0,
+        height: 48.0,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppStyle.profile),
+            fit: BoxFit.cover,
+            repeat: ImageRepeat.repeat,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(18.0)),
+        ),
+        child: Stack(
+          alignment: Alignment.topRight,
+          children: [
+            Container(
+              width: 18.0,
+              height: 18.0,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color.fromRGBO(28, 107, 164, 1),
+                border: Border.all(
+                  color: Colors.white,
+                  width: 3.0,
+                  style: BorderStyle.solid,
                 ),
               ),
-              TitleBar(title: "Upcoming Consultation"),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      consultationcard(
-                        color: Color.fromARGB(255, 51, 146, 223),
-                        name: "Michael\nSimpson",
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      consultationcard(
-                        color: Color.fromARGB(255, 51, 146, 223),
-                        name: "Kate\nBrown ",
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      consultationcard(
-                        color: Color.fromARGB(255, 51, 146, 223),
-                        name: "Bourchada ",
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      consultationcard(
-                          color: Color.fromARGB(255, 51, 146, 223),
-                          name: "user"),
-                    ],
-                  ),
-                ),
-              ),
-              TitleBar(title: "Practitioner Profiles"),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Color(0xFF00dca6),
-                        child: Icon(
-                          Icons.add,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                        radius: 30,
-                      ),
-                      SizedBox(width: 15),
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage("assets/user1.jpg"),
-                      ),
-                      SizedBox(width: 15),
-                      CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage("assets/user2.jpg")),
-                      SizedBox(width: 15),
-                      CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage("assets/user3.jpg")),
-                      SizedBox(width: 10),
-                      CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage("assets/user4.jpg")),
-                      SizedBox(width: 10),
-                      CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage("assets/user5.jpg")),
-                      SizedBox(width: 10),
-                      CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage("assets/user6.jpg")),
-                      SizedBox(width: 10),
-                      CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage("assets/user7.jpg")),
-                      SizedBox(width: 15),
-                    ],
-                  ),
-                ),
-              ),
-              TitleBar(title: "My Health Details"),
-              Expanded(
-                child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2),
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 59, 59, 59),
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                         
-                          )
-                          ,
-                        ),
-                      );
-                    }),
-              ),
-            ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SearchMedical extends StatelessWidget {
+  const SearchMedical({super.key});
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(vertical: SizeConfig.blockSizeVertical! * 3),
+      child: TextField(
+        decoration: InputDecoration(
+          filled: true,
+          prefixIcon: CupertinoButton(
+            onPressed: () {},
+            child: SvgPicture.asset(AppStyle.searchIcon),
+          ),
+          suffixIcon: CupertinoButton(
+            onPressed: () {},
+            child: SvgPicture.asset(AppStyle.filtterIcon),
+          ),
+          hintText: "Search medical..",
+          fillColor: AppStyle.inputFillColor,
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(18),
           ),
         ),
       ),
+    );
+  }
+}
+
+class Services extends StatelessWidget {
+  const Services({super.key});
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          "Services",
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium!
+              .copyWith(fontWeight: FontWeight.w700, letterSpacing: 1),
+        ),
+        const SizedBox(height: 12),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: servicesList
+              .map(
+                (e) => CupertinoButton(
+                  onPressed: () {},
+                  padding: EdgeInsets.zero,
+                  child: Container(
+                    width: SizeConfig.blockSizeHorizontal! * 17,
+                    height: SizeConfig.blockSizeHorizontal! * 17,
+                    decoration: BoxDecoration(
+                      color: e.color,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: SvgPicture.asset(e.image),
+                    ),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+      ],
+    );
+  }
+}
+
+class GetBestMedicalService extends StatelessWidget {
+  const GetBestMedicalService({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(vertical: SizeConfig.blockSizeVertical! * 3),
+      child: Stack(
+        alignment: Alignment.bottomRight,
+        children: [
+          Container(
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: Color(0xffDCEDF9),
+              borderRadius: BorderRadius.all(Radius.circular(28.0)),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: SizeConfig.blockSizeHorizontal! * 5,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Get the Best\nMedical Service",
+                          style:
+                              Theme.of(context).textTheme.titleLarge!.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 1,
+                                  ),
+                        ),
+                        SizedBox(height: SizeConfig.blockSizeVertical! * 1),
+                        Text(
+                          "Lorem Ipsum is simply dummy\ntext of the printing",
+                          style:
+                              Theme.of(context).textTheme.titleLarge!.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: 1,
+                                    fontSize: 11.0,
+                                    height: 1.5,
+                                  ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding:
+                        EdgeInsets.only(top: SizeConfig.blockSizeVertical! * 2),
+                    child: Image.asset(AppStyle.image1),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class UpcomingAppointments extends StatelessWidget {
+  const UpcomingAppointments({super.key});
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: SizeConfig.blockSizeHorizontal! * 7,
+          ),
+          child: Text(
+            "Upcoming Appointments",
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(fontWeight: FontWeight.w700, letterSpacing: 1),
+          ),
+        ),
+        SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 28),
+            child: Row(
+              children: upcomingAppointmentsList
+                  .map(
+                    (e) => CupertinoButton(
+                      onPressed: () {},
+                      padding: const EdgeInsets.only(right: 12),
+                      child: Container(
+                        height: SizeConfig.blockSizeVertical! * 17,
+                        width: SizeConfig.blockSizeHorizontal! * 80,
+                        decoration: BoxDecoration(
+                          color: e.color,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.all(20),
+                              width: 71.46,
+                              height: 99.03,
+                              decoration: const BoxDecoration(
+                                color: Colors.white12,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(26.0),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    e.date,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge!
+                                        .copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  e.time,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .copyWith(
+                                        letterSpacing: 1,
+                                        color: Colors.white,
+                                      ),
+                                ),
+                                Text(
+                                  e.title,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleLarge!
+                                      .copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        height: 1.8,
+                                        letterSpacing: 1,
+                                      ),
+                                ),
+                                Text(
+                                  e.subTitle,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .copyWith(
+                                        letterSpacing: 1,
+                                        height: 1.8,
+                                        color: Colors.white60,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

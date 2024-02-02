@@ -21,47 +21,72 @@ class _accountPageState extends State<accountPage> {
 
 
 
-Widget logOutButton() => GestureDetector(
-  child: Column(
-    children: <Widget>[
-      TextButton(
-        onPressed: () {
-          logOut();
-        },
+Widget logOutButton(BuildContext context) => GestureDetector(
+  onTap:(){
+  logOut();
+  } ,
         child: Row(
-          children: <Widget>[
-            SizedBox(width: 25),
-            Image(
-              image: AssetImage("assets/logout.png"), // Replace with your asset path
-              height: 28,
-              width: 28,
-            ),
-            SizedBox(width: 35), // Adjust the spacing between icon and text
-            Text(
-              "Log Out",
-              style: 
-                GoogleFonts.inter(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black87           
-              
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: Row(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.06,
+                    width: MediaQuery.of(context).size.width * 0.1500,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 247, 250, 247),
+                      shape: BoxShape.circle,
                     ),
-            ),
-                  SizedBox(width: 160),
-            Image(
-                    image: AssetImage(
-                        "assets/forward.png"), // Replace with your asset path
-                    height: 28,
-                    width: 28,
+                    child: Image.asset("assets/logout.png"),
                   ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.06,
+                    width: MediaQuery.of(context).size.width * 0.5800,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(
+                            "Log Out",
+                            style: GoogleFonts.inter(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.06,
+                    width: MediaQuery.of(context).size.width * 0.1100,
+                    child: Image.asset("assets/forward.png"),
+                  ),
+                ],
+              ),
+            ),
+        
           ],
         ),
-      )
-    ],
-  ),
-);
+      );
+
+   
 
 
+Widget _buildVerticalDivider() {
+  return Container(
+    height: 50,
+    width: 1,
+    color: Colors.white,
+  );
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,120 +156,116 @@ Widget logOutButton() => GestureDetector(
               height: 30,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    
-                    height: MediaQuery.of(context).size.height * 0.0900,
-                    width: MediaQuery.of(context).size.width * 0.2500,
-                    child: Column(children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.0400,
-                        width: MediaQuery.of(context).size.width * 0.1500,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/callories.png"),
-                              filterQuality: FilterQuality.high),
-                        ),
-                      ),
-                      Text(
-                        "Calories",
-                        style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: const Color.fromARGB(255, 245, 243, 243)),
-                      ),
-                      const SizedBox(
-                        height: 2,
-                      ),
-                      Text(
-                        "103lbs",
-                        style: GoogleFonts.poppins(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: const Color.fromARGB(255, 255, 255, 255)),
-                      )
-                    ]),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 1,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.0900,
-                    width: MediaQuery.of(context).size.width * 0.2500,
-                    child: Column(children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.0400,
-                        width: MediaQuery.of(context).size.width * 0.1500,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/weight.png"),
-                              filterQuality: FilterQuality.high),
-                        ),
-                      ),
-                      Text(
-                        "Weight",
-                        style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: const Color.fromARGB(255, 245, 243, 243)),
-                      ),
-                      const SizedBox(
-                        height: 2,
-                      ),
-                      Text(
-                        "756cal",
-                        style: GoogleFonts.poppins(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: const Color.fromARGB(255, 255, 255, 255)),
-                      )
-                    ]),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 1,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.0900,
-                    width: MediaQuery.of(context).size.width * 0.2500,
-                    child: Column(children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.0400,
-                        width: MediaQuery.of(context).size.width * 0.1500,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/heart.png"),
-                              filterQuality: FilterQuality.high),
-                        ),
-                      ),
-                      Text(
-                        "Heart rate",
-                        style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: const Color.fromARGB(255, 245, 243, 243)),
-                      ),
-                      const SizedBox(
-                        height: 2,
-                      ),
-                      Text(
-                        "215bpm",
-                        style: GoogleFonts.poppins(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 255, 255, 255)),
-                      )
-                    ]),
-                  ),
-                ],
+  padding: const EdgeInsets.symmetric(horizontal: 25),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Expanded(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.0400,
+              width: MediaQuery.of(context).size.width * 0.1500,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/callories.png"),
+                  filterQuality: FilterQuality.high,
+                ),
               ),
             ),
+            Text(
+              "Calories",
+              style: GoogleFonts.poppins(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: const Color.fromARGB(255, 245, 243, 243),
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              "103lbs",
+              style: GoogleFonts.poppins(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: const Color.fromARGB(255, 255, 255, 255),
+              ),
+            ),
+          ],
+        ),
+      ),
+      _buildVerticalDivider(),
+      Expanded(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.0400,
+              width: MediaQuery.of(context).size.width * 0.1500,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/weight.png"),
+                  filterQuality: FilterQuality.high,
+                ),
+              ),
+            ),
+            Text(
+              "Weight",
+              style: GoogleFonts.poppins(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: const Color.fromARGB(255, 245, 243, 243),
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              "756cal",
+              style: GoogleFonts.poppins(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: const Color.fromARGB(255, 255, 255, 255),
+              ),
+            ),
+          ],
+        ),
+      ),
+      _buildVerticalDivider(),
+      Expanded(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.0400,
+              width: MediaQuery.of(context).size.width * 0.1500,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/heart.png"),
+                  filterQuality: FilterQuality.high,
+                ),
+              ),
+            ),
+            Text(
+              "Heart rate",
+              style: GoogleFonts.poppins(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: const Color.fromARGB(255, 245, 243, 243),
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              "215bpm",
+              style: GoogleFonts.poppins(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: const Color.fromARGB(255, 255, 255, 255),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  ),
+),
+
+
             const SizedBox(
               height: 50,
             ),
@@ -296,7 +317,7 @@ Widget logOutButton() => GestureDetector(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                   child: Divider(),
                 ),
-                logOutButton(),
+                logOutButton(context),
               ]),
             ),
           ],

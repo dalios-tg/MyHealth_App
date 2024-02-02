@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Medical App',
+      title: 'My Health',
       // home: const MainPage(),
       routes: {
         "/": (context) => const auth(),
