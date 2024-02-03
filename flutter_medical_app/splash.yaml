@@ -1,0 +1,12 @@
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/medicalAPP.png
+
+  android_12:
+    image: assets/splash.png
+    icon_background_color: "#ffffff"
+    android_gravity: fill
+   
+  
+
+
