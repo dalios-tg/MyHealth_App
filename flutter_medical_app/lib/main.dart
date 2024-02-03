@@ -1,7 +1,6 @@
 import 'package:flutter_medical_app/auth.dart';
 import 'package:flutter_medical_app/pages/loginPage.dart';
 import 'package:flutter_medical_app/pages/resetPasswordPage.dart';
-import 'package:flutter_medical_app/pages/searchPage.dart';
 import 'package:flutter_medical_app/pages/accountPage.dart';
 import 'package:flutter_medical_app/pages/home_page.dart';
 import 'package:flutter_medical_app/pages/notifPage.dart';
@@ -53,7 +52,6 @@ class _MainPageState extends State<MainPage> {
   final Screens = [
     homePage(),
     schedulePage(),
-    shearchPage(),
     notifPage(),
     accountPage(),
   ];
@@ -100,19 +98,9 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.grey.shade700,
                     ),
               label: "Schedule"),
+          
           BottomNavigationBarItem(
               icon: currentPage == 2
-                  ? Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    )
-                  : Icon(
-                      Icons.search,
-                      color: Colors.grey.shade700,
-                    ),
-              label: "Search"),
-          BottomNavigationBarItem(
-              icon: currentPage == 3
                   ? Icon(
                       Icons.notifications,
                       color: Colors.black,
@@ -123,7 +111,7 @@ class _MainPageState extends State<MainPage> {
                     ),
               label: "Notifications"),
           BottomNavigationBarItem(
-              icon: currentPage == 4
+              icon: currentPage == 3
                   ? Icon(
                       Icons.person,
                       color: Colors.black,

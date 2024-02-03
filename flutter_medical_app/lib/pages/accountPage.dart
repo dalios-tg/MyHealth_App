@@ -40,7 +40,7 @@ Widget logOutButton(BuildContext context) => GestureDetector(
                       color: Color.fromARGB(255, 247, 250, 247),
                       shape: BoxShape.circle,
                     ),
-                    child: Image.asset("assets/logout.png"),
+                    child: Image.asset("assets/logOut.png"),
                   ),
                   const SizedBox(
                     width: 5,
@@ -90,7 +90,7 @@ Widget _buildVerticalDivider() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: const Color.fromARGB(255, 3, 226, 215),
+       backgroundColor: const Color.fromRGBO(28, 107, 164, 1),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -300,7 +300,7 @@ Widget _buildVerticalDivider() {
                   child: Divider(),
                 ),
                 profile_list(
-                  image: "assets/Chat.png",
+                  image: "assets/chat.png",
                   title: "FAQs",
                   color: Colors.black87,
                 ),
